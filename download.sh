@@ -1,5 +1,5 @@
 rank=$NODE_RANK
-echo "META FILE /f_ndata/G/dataset/panda/full_shard/panda70m_training_full_${rank}.csv"
+echo "META FILE /f_ndata/G/dataset/panda/full_shard/panda70m_training_full_${rank+1}.csv"
 echo "Saving to /f_ndata/G/dataset/panda/full_shard/part-${rank}"
 echo "Logging at panda/part${rank}"
 video2dataset --url_list="/f_ndata/G/dataset/panda/full_shard/panda70m_training_full_${rank}.csv" \
