@@ -232,6 +232,7 @@ class LoggerProcess(multiprocessing.context.SpawnProcess):
         output_folder,
         enable_wandb,
         wandb_project,
+        wandb_name,
         config_parameters,
         log_interval=5,
     ):
@@ -241,6 +242,7 @@ class LoggerProcess(multiprocessing.context.SpawnProcess):
         self.output_folder = output_folder
         self.stats_files = set()
         self.wandb_project = wandb_project
+        self.wandb_name = wandb_name
         self.done_shards = set()
         self.config_parameters = config_parameters
         ctx = multiprocessing.get_context("spawn")
@@ -254,6 +256,7 @@ class LoggerProcess(multiprocessing.context.SpawnProcess):
         if self.enable_wandb:
             self.current_run = wandb.init(
                 project=self.wandb_project,
+                name=self.wandb_name,
                 config=self.config_parameters,
                 anonymous="allow",
             )

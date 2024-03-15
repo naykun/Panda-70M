@@ -50,6 +50,7 @@ def video2dataset(
     save_additional_columns: Optional[List[str]] = None,
     enable_wandb: bool = False,
     wandb_project: str = "video2dataset",
+    wandb_name: str = "subpart",
     incremental_mode: str = "incremental",
     max_shard_retry: int = 1,
     tmp_dir: str = "/tmp",
@@ -140,7 +141,7 @@ def video2dataset(
     output_folder = make_path_absolute(output_folder)
     url_list = make_path_absolute(url_list)
 
-    logger_process = LoggerProcess(output_folder, enable_wandb, wandb_project, local_args)
+    logger_process = LoggerProcess(output_folder, enable_wandb, wandb_project, wandb_name, local_args)
     tmp_path = output_folder + "/_tmp"
     fs, run_tmp_dir = fsspec.core.url_to_fs(tmp_path)
     if not fs.exists(run_tmp_dir):
