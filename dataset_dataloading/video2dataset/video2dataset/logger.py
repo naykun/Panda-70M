@@ -259,6 +259,7 @@ class LoggerProcess(multiprocessing.context.SpawnProcess):
                 name=self.wandb_name,
                 config=self.config_parameters,
                 anonymous="allow",
+                id=self.wandb_name
             )
         else:
             self.current_run = None
