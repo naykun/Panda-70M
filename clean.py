@@ -14,6 +14,7 @@ for tmp in tqdm(tmp_json_files):
         tmp_json = json.load(open(tmp))
     except:
         os.remove(tmp)
+        continue
     success_num.append(tmp_json['successes'])
     if tmp_json['successes'] == 0:
         os.remove(tmp)
