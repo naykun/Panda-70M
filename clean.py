@@ -10,7 +10,10 @@ datapath = f'/f_ndata/G/dataset/panda/full_shard_64/part-{rank}'
 tmp_json_files = [x for x in glob.glob(datapath + "/*.json")]
 success_num = []
 for tmp in tqdm(tmp_json_files):
-    tmp_json = json.load(open(tmp))
+    try:
+        tmp_json = json.load(open(tmp))
+    except:
+        os.remove(tmp)
     success_num.append(tmp_json['successes'])
     if tmp_json['successes'] == 0:
         os.remove(tmp)
