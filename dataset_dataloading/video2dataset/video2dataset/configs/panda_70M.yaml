@@ -19,6 +19,6 @@ storage:
 
 distribution:
     processes_count: 16
-    thread_count: 16
+    thread_count: 4
     subjob_size: 10000
     distributor: "multiprocessing"
