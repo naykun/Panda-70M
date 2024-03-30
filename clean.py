@@ -13,7 +13,7 @@ for tmp in tqdm(tmp_json_files):
     tmp_json = json.load(open(tmp))
     success_num.append(tmp_json['successes'])
     if tmp_json['successes'] == 0:
-        # os.remove(tmp)
+        os.remove(tmp)
         print(f"Remove {tmp}")
     # print(tmp_json)
     # break
