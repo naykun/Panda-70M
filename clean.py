@@ -4,6 +4,7 @@ import json
 from tqdm import tqdm
 rank = os.environ.get('NODE_RANK')
 offset = os.environ.get('OFFSET')
+rank = int(rank)+int(offset)
 datapath = f'/f_ndata/G/dataset/panda/full_shard_64/part-{rank}'
 
 tmp_json_files = [x for x in glob.glob(datapath + "/*.json")]
